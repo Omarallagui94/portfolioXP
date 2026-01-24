@@ -18,8 +18,8 @@ const Top = styled.div`
   width: 100%;
   height: 16.666%; /* h-1/6 */
   /* Approximate 'bg-color-load-header-blue' and 'down-stroke-white-2' */
-  background-color: #003399; 
-  border-bottom: 2px solid rgba(255,255,255,0.2);
+  background-color: #003399;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
   z-index: 20;
 
   @media (min-width: 768px) {

@@ -51,7 +51,7 @@ const FooterRight = styled.div`
   position: absolute;
   bottom: 1.5rem;
   right: 2rem;
-  
+
   img {
     height: 20px;
     width: auto;
@@ -72,8 +72,23 @@ const LoadingScreen = () => {
       <LoadingBar />
       <FooterLeft>Copyright © Microsoft Corporation</FooterLeft>
       <FooterRight>
-        <svg width="80" height="20" viewBox="0 0 120 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <text x="0" y="20" fill="#999" fontSize="16" fontFamily="Arial, sans-serif" fontWeight="bold">Microsoft</text>
+        <svg
+          width="80"
+          height="20"
+          viewBox="0 0 120 30"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <text
+            x="0"
+            y="20"
+            fill="#999"
+            fontSize="16"
+            fontFamily="Arial, sans-serif"
+            fontWeight="bold"
+          >
+            Microsoft
+          </text>
         </svg>
       </FooterRight>
     </Screen>

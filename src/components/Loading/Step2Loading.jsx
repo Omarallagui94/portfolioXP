@@ -6,11 +6,11 @@ import LoadingBar from './LoadingBar';
 const LogoContainer = styled.div`
   width: 16rem; /* w-64 */
   margin-left: 1.25rem; /* ml-5 */
-  
+
   @media (min-width: 768px) {
     width: 33.333333%; /* w-4/12 */
   }
-  
+
   img {
     width: 100%;
     height: auto;
@@ -22,7 +22,7 @@ const FooterContainer = styled.div`
   bottom: 0;
   margin-top: 2rem;
   margin-bottom: 2rem;
-  
+
   @media (min-width: 768px) {
     margin-top: 4rem;
     margin-bottom: 4rem;
@@ -49,46 +49,53 @@ const H2 = styled.h2`
   letter-spacing: -0.05em; /* tracking-tighter */
   font-weight: 600;
   font-family: 'Helvetica', sans-serif;
-   @media (min-width: 768px) {
+  @media (min-width: 768px) {
     font-size: 1.5rem; /* text-2xl */
   }
 `;
 
 const Step2Loading = () => {
-    return (
-        <ContentCenter
-            className="bg-black"
-            center={
-                <LogoContainer>
-                    {/* Placeholder text for missing image */}
-                    <h2 style={{ color: 'white', fontSize: '2em' }}>UnMugViolet</h2>
-                </LogoContainer>
-            }
-            bottom={
-                <FooterContainer className="app-container">
-                    <div>
-                        <WelcomeText>
-                            <div>
-                                <H1>Welcome</H1>
-                            </div>
-                            <div>
-                                <H2>UnMugViolet</H2>
-                            </div>
-                        </WelcomeText>
-                    </div>
-                </FooterContainer>
-            }
-        >
-            {/* LoadingBar positioned at bottom-center logically/visually in the original.
+  return (
+    <ContentCenter
+      className="bg-black"
+      center={
+        <LogoContainer>
+          {/* Placeholder text for missing image */}
+          <h2 style={{ color: 'white', fontSize: '2em' }}>UnMugViolet</h2>
+        </LogoContainer>
+      }
+      bottom={
+        <FooterContainer className="app-container">
+          <div>
+            <WelcomeText>
+              <div>
+                <H1>Welcome</H1>
+              </div>
+              <div>
+                <H2>UnMugViolet</H2>
+              </div>
+            </WelcomeText>
+          </div>
+        </FooterContainer>
+      }
+    >
+      {/* LoadingBar positioned at bottom-center logically/visually in the original.
           The Vue template had a specific #bottom-center slot which we didn't explicitly create in ContentCenter.
           We can put it in the main children area or adjust ContentCenter. 
           For now let's put it as a direct child which renders after center but before bottom.
        */}
-            <div style={{ display: 'flex', justifyContent: 'center', marginTop: 'auto', marginBottom: '15rem' }}>
-                <LoadingBar />
-            </div>
-        </ContentCenter>
-    );
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginTop: 'auto',
+          marginBottom: '15rem',
+        }}
+      >
+        <LoadingBar />
+      </div>
+    </ContentCenter>
+  );
 };
 
 export default Step2Loading;

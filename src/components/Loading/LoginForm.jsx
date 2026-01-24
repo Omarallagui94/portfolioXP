@@ -18,12 +18,12 @@ const InnerContainer = styled.div`
   width: 100%;
   border-radius: 0.75rem; /* rounded-xl */
   /* bg-color-login-blue approximation */
-  background-color: rgba(66, 165, 245, 0.8); 
+  background-color: rgba(66, 165, 245, 0.8);
   display: flex;
   align-items: center;
   padding: 0.625rem 1.5rem; /* py-2.5 px-6 */
   border: 1px solid white; /* stroke-white-1 */
-  
+
   &:hover {
     background-color: rgba(66, 165, 245, 1);
   }
@@ -39,10 +39,27 @@ const ProfilePic = styled.img`
 
 const LoginForm = ({ onLogin }) => {
   return (
-    <div className="flex items-center" style={{ display: 'flex', alignItems: 'center', position: 'relative', height: '100px', width: '100%' }}>
+    <div
+      className="flex items-center"
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        position: 'relative',
+        height: '100px',
+        width: '100%',
+      }}
+    >
       <LoginButton onClick={onLogin}>
         <InnerContainer>
-          <div style={{ width: '100%', display: 'flex', alignItems: 'center', gap: '1rem', color: 'white' }}>
+          <div
+            style={{
+              width: '100%',
+              display: 'flex',
+              alignItems: 'center',
+              gap: '1rem',
+              color: 'white',
+            }}
+          >
             <div>
               <ProfilePic src={profilePic} alt="Omar" />
             </div>

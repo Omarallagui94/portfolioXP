@@ -29,8 +29,7 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   border: 1px solid #ffffff;
-  box-shadow: 
-    inset 0 0 0 1px rgba(0, 0, 0, 0.5),
+  box-shadow: inset 0 0 0 1px rgba(0, 0, 0, 0.5),
     0 1px 2px rgba(255, 255, 255, 0.1);
   background: #000;
   position: relative;

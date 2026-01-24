@@ -7,9 +7,7 @@ const BlackScreen = styled(ContentCenter)`
 `;
 
 const Step1Loading = () => {
-    return (
-        <BlackScreen />
-    );
+  return <BlackScreen />;
 };
 
 export default Step1Loading;
