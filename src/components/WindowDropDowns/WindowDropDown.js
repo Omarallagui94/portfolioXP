@@ -25,9 +25,7 @@ export function WindowDropDown({ items, position = {}, onClick }) {
                     <RowSymbol type={item.symbol} />
                   </div>
                   <div className="drop-down__text">{item.text}</div>
-                  <span className="drop-down__hot-key">
-                    {item.hotkey || ''}
-                  </span>
+                  <span className="drop-down__hot-key">{item.hotkey || ''}</span>
                   <div className="drop-down__arrow--disable" />
                 </div>
               );
@@ -35,18 +33,14 @@ export function WindowDropDown({ items, position = {}, onClick }) {
               return (
                 <div
                   key={item.text}
-                  className={`drop-down__row${
-                    option === item.text ? '--active' : ''
-                  }`}
+                  className={`drop-down__row${option === item.text ? '--active' : ''}`}
                   onMouseEnter={() => setOption(item.text)}
                 >
                   <div className="drop-down__check">
                     <RowSymbol type={item.symbol} />
                   </div>
                   <div className="drop-down__text">{item.text}</div>
-                  <span className="drop-down__hot-key">
-                    {item.hotkey || ''}
-                  </span>
+                  <span className="drop-down__hot-key">{item.hotkey || ''}</span>
                   <div className="drop-down__arrow" />
                   <div style={{ position: 'relative' }}>
                     {option === item.text && (

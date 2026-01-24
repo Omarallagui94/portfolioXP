@@ -227,8 +227,7 @@ function useElementResize(ref, options) {
       switch (cursorPos) {
         case 'topLeft':
           _boundary.right = originMouseX + previousSize.width - constraintSize;
-          _boundary.bottom =
-            originMouseY + previousSize.height - constraintSize;
+          _boundary.bottom = originMouseY + previousSize.height - constraintSize;
           onResizeStartTopLeft(e);
           onDragStart(e);
           break;
@@ -244,14 +243,12 @@ function useElementResize(ref, options) {
           onDragStartLeft(e);
           break;
         case 'top':
-          _boundary.bottom =
-            originMouseY + previousSize.height - constraintSize;
+          _boundary.bottom = originMouseY + previousSize.height - constraintSize;
           onResizeStartTop(e);
           onDragStartTop(e);
           break;
         case 'topRight':
-          _boundary.bottom =
-            originMouseY + previousSize.height - constraintSize;
+          _boundary.bottom = originMouseY + previousSize.height - constraintSize;
           _boundary.left = originMouseX - previousSize.width + constraintSize;
           onDragStartTop(e);
           onResizeStartTopRight(e);

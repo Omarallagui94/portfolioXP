@@ -2,12 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import styled from 'styled-components';
 import WindowDropDown from './WindowDropDown';
 
-export function WindowDropDowns({
-  items,
-  onClickItem,
-  className,
-  height = 20,
-}) {
+export function WindowDropDowns({ items, onClickItem, className, height = 20 }) {
   const dropDown = useRef(null);
   const [openOption, setOpenOption] = useState('');
   function hoverOption(option) {
@@ -36,9 +31,7 @@ export function WindowDropDowns({
               setOpenOption(name);
             }}
             onMouseEnter={() => hoverOption(name)}
-            className={`drop-down__label ${
-              openOption === name ? 'drop-down__label--active' : ''
-            }`}
+            className={`drop-down__label ${openOption === name ? 'drop-down__label--active' : ''}`}
           >
             {name}
           </div>

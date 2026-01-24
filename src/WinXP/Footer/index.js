@@ -26,13 +26,7 @@ const getTime = () => {
   return `${hour}:${min} ${hourPostFix}`;
 };
 
-function Footer({
-  onMouseDownApp,
-  apps,
-  focusedAppId,
-  onMouseDown,
-  onClickMenuItem,
-}) {
+function Footer({ onMouseDownApp, apps, focusedAppId, onMouseDown, onClickMenuItem }) {
   const [time, setTime] = useState(getTime);
   const [menuOn, setMenuOn] = useState(false);
   const menu = useRef(null);
@@ -70,12 +64,7 @@ function Footer({
         <div ref={menu} className="footer__start__menu">
           {menuOn && <FooterMenu onClick={_onClickMenuItem} />}
         </div>
-        <img
-          src={startButton}
-          alt="start"
-          className="footer__start"
-          onMouseDown={toggleMenu}
-        />
+        <img src={startButton} alt="start" className="footer__start" onMouseDown={toggleMenu} />
         {[...apps].map(
           app =>
             !app.header.noFooterWindow && (
@@ -87,7 +76,7 @@ function Footer({
                 onMouseDown={onMouseDownApp}
                 isFocus={focusedAppId === app.id}
               />
-            ),
+            )
         )}
       </div>
 
@@ -109,10 +98,7 @@ function FooterWindow({ id, icon, title, onMouseDown, isFocus }) {
     onMouseDown(id);
   }
   return (
-    <div
-      onMouseDown={_onMouseDown}
-      className={`footer__window ${isFocus ? 'focus' : 'cover'}`}
-    >
+    <div onMouseDown={_onMouseDown} className={`footer__window ${isFocus ? 'focus' : 'cover'}`}>
       <img className="footer__icon" src={icon} alt={title} />
       <div className="footer__text">{title}</div>
     </div>
@@ -205,8 +191,7 @@ const Container = styled.footer`
     height: 22px;
     font-size: 11px;
     background-color: #3c81f3;
-    box-shadow: inset -1px 0px rgba(0, 0, 0, 0.3),
-      inset 1px 1px 1px rgba(255, 255, 255, 0.2);
+    box-shadow: inset -1px 0px rgba(0, 0, 0, 0.3), inset 1px 1px 1px rgba(255, 255, 255, 0.2);
     position: relative;
     display: flex;
     align-items: center;
@@ -225,8 +210,7 @@ const Container = styled.footer`
   }
   .footer__window.cover:hover {
     background-color: #53a3ff;
-    box-shadow: inset -1px 0px rgba(0, 0, 0, 0.3),
-      inset 1px 1px 1px rgba(255, 255, 255, 0.2);
+    box-shadow: inset -1px 0px rgba(0, 0, 0, 0.3), inset 1px 1px 1px rgba(255, 255, 255, 0.2);
   }
   .footer__window.cover:before {
     display: block;
@@ -241,8 +225,7 @@ const Container = styled.footer`
   }
   .footer__window.cover:hover:active {
     background-color: #1e52b7;
-    box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.3),
-      inset 1px 0 1px rgba(0, 0, 0, 0.7);
+    box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.3), inset 1px 0 1px rgba(0, 0, 0, 0.7);
   }
   .footer__window.focus:hover {
     background-color: #3576f3;
@@ -252,8 +235,7 @@ const Container = styled.footer`
   }
   .footer__window.focus {
     background-color: #1e52b7;
-    box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2),
-      inset 1px 0 1px rgba(0, 0, 0, 0.7);
+    box-shadow: inset 0 0 1px 1px rgba(0, 0, 0, 0.2), inset 1px 0 1px rgba(0, 0, 0, 0.7);
   }
   .footer__time {
     margin: 0 5px;

@@ -153,10 +153,7 @@ function reducer(state, action = {}) {
 }
 
 function MineSweeper({ defaultDifficulty, onClose }) {
-  const [state, dispatch] = useReducer(
-    reducer,
-    getInitState(defaultDifficulty),
-  );
+  const [state, dispatch] = useReducer(reducer, getInitState(defaultDifficulty));
   const seconds = useTimer(state.status);
   function changeCeilState(index) {
     const ceil = state.ceils[index];
@@ -185,21 +182,12 @@ function MineSweeper({ defaultDifficulty, onClose }) {
   }
   function openCeils(index) {
     const ceil = state.ceils[index];
-    if (
-      ceil.state !== 'open' ||
-      ceil.minesAround <= 0 ||
-      state.status !== 'started'
-    )
-      return;
+    if (ceil.state !== 'open' || ceil.minesAround <= 0 || state.status !== 'started') return;
     const indexes = getNearIndexes(index, state.rows, state.columns);
     const nearCeils = indexes.map(i => state.ceils[i]);
-    if (
-      nearCeils.filter(ceil => ceil.state === 'flag').length !==
-      ceil.minesAround
-    )
-      return;
+    if (nearCeils.filter(ceil => ceil.state === 'flag').length !== ceil.minesAround) return;
     const mineIndex = indexes.find(
-      i => state.ceils[i].minesAround < 0 && state.ceils[i].state !== 'flag',
+      i => state.ceils[i].minesAround < 0 && state.ceils[i].state !== 'flag'
     );
     if (mineIndex) {
       dispatch({ type: 'GAME_OVER', payload: mineIndex });
@@ -264,12 +252,11 @@ function genGameConfig(config) {
 function insertMines(config, originCeils) {
   const { rows, columns, mines, exclude } = config;
   const ceils = originCeils.map(ceil => ({ ...ceil }));
-  if (rows * columns !== ceils.length)
-    throw new Error('rows and columns not equal to ceils');
+  if (rows * columns !== ceils.length) throw new Error('rows and columns not equal to ceils');
   const indexArray = [...Array(rows * columns).keys()];
   sampleSize(
     indexArray.filter(i => i !== exclude),
-    mines,
+    mines
   ).forEach(chosen => {
     ceils[chosen].minesAround = -10;
     getNearIndexes(chosen, rows, columns).forEach(nearIndex => {
@@ -298,12 +285,9 @@ function autoCeils(state, index) {
     if (ceil.minesAround > 0) return [index];
     return [
       index,
-      ...getNearIndexes(index, rows, columns).reduce(
-        (lastIndexes, ceilIndex) => {
-          return [...lastIndexes, ...walkCeils(ceilIndex)];
-        },
-        [],
-      ),
+      ...getNearIndexes(index, rows, columns).reduce((lastIndexes, ceilIndex) => {
+        return [...lastIndexes, ...walkCeils(ceilIndex)];
+      }, []),
     ];
   }
 }

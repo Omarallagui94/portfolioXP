@@ -38,10 +38,7 @@ function MyComputer({ onClose }) {
     <Div>
       <section className="com__toolbar">
         <div className="com__options">
-          <WindowDropDowns
-            items={dropDownData}
-            onClickItem={onClickOptionItem}
-          />
+          <WindowDropDowns items={dropDownData} onClickItem={onClickOptionItem} />
         </div>
         <img className="com__windows-logo" src={windows} alt="windows" />
       </section>
@@ -60,45 +57,25 @@ function MyComputer({ onClose }) {
         </div>
         <div className="com__function_bar__separate" />
         <div className="com__function_bar__button">
-          <img
-            className="com__function_bar__icon--normalize "
-            src={search}
-            alt=""
-          />
+          <img className="com__function_bar__icon--normalize " src={search} alt="" />
           <span className="com__function_bar__text">Search</span>
         </div>
         <div className="com__function_bar__button">
-          <img
-            className="com__function_bar__icon--normalize"
-            src={folderOpen}
-            alt=""
-          />
+          <img className="com__function_bar__icon--normalize" src={folderOpen} alt="" />
           <span className="com__function_bar__text">Folders</span>
         </div>
         <div className="com__function_bar__separate" />
         <div className="com__function_bar__button">
-          <img
-            className="com__function_bar__icon--margin12"
-            src={menu}
-            alt=""
-          />
+          <img className="com__function_bar__icon--margin12" src={menu} alt="" />
           <div className="com__function_bar__arrow" />
         </div>
       </section>
       <section className="com__address_bar">
         <div className="com__address_bar__title">Address</div>
         <div className="com__address_bar__content">
-          <img
-            src={computer}
-            alt="ie"
-            className="com__address_bar__content__img"
-          />
+          <img src={computer} alt="ie" className="com__address_bar__content__img" />
           <div className="com__address_bar__content__text">My Computer</div>
-          <img
-            src={dropdown}
-            alt="dropdown"
-            className="com__address_bar__content__img"
-          />
+          <img src={dropdown} alt="dropdown" className="com__address_bar__content__img" />
         </div>
         <div className="com__address_bar__go">
           <img className="com__address_bar__go__img" src={go} alt="go" />
@@ -110,150 +87,74 @@ function MyComputer({ onClose }) {
           <div className="com__content__left">
             <div className="com__content__left__card">
               <div className="com__content__left__card__header">
-                <div className="com__content__left__card__header__text">
-                  System Tasks
-                </div>
-                <img
-                  src={pullup}
-                  alt=""
-                  className="com__content__left__card__header__img"
-                />
+                <div className="com__content__left__card__header__text">System Tasks</div>
+                <img src={pullup} alt="" className="com__content__left__card__header__img" />
               </div>
               <div className="com__content__left__card__content">
                 <div className="com__content__left__card__row">
-                  <img
-                    className="com__content__left__card__img"
-                    src={viewInfo}
-                    alt="view"
-                  />
-                  <div className="com__content__left__card__text link">
-                    View system information
-                  </div>
+                  <img className="com__content__left__card__img" src={viewInfo} alt="view" />
+                  <div className="com__content__left__card__text link">View system information</div>
                 </div>
                 <div className="com__content__left__card__row">
-                  <img
-                    className="com__content__left__card__img"
-                    src={remove}
-                    alt="remove"
-                  />
-                  <div className="com__content__left__card__text link">
-                    Add or remove programs
-                  </div>
+                  <img className="com__content__left__card__img" src={remove} alt="remove" />
+                  <div className="com__content__left__card__text link">Add or remove programs</div>
                 </div>
                 <div className="com__content__left__card__row">
-                  <img
-                    className="com__content__left__card__img"
-                    src={control}
-                    alt="control"
-                  />
-                  <div className="com__content__left__card__text link">
-                    Change a setting
-                  </div>
+                  <img className="com__content__left__card__img" src={control} alt="control" />
+                  <div className="com__content__left__card__text link">Change a setting</div>
                 </div>
               </div>
             </div>
             <div className="com__content__left__card">
               <div className="com__content__left__card__header">
-                <div className="com__content__left__card__header__text">
-                  Other Places
-                </div>
-                <img
-                  src={pullup}
-                  alt=""
-                  className="com__content__left__card__header__img"
-                />
+                <div className="com__content__left__card__header__text">Other Places</div>
+                <img src={pullup} alt="" className="com__content__left__card__header__img" />
               </div>
               <div className="com__content__left__card__content">
                 <div className="com__content__left__card__row">
-                  <img
-                    className="com__content__left__card__img"
-                    src={network}
-                    alt="network"
-                  />
-                  <div className="com__content__left__card__text link">
-                    My Network Places
-                  </div>
+                  <img className="com__content__left__card__img" src={network} alt="network" />
+                  <div className="com__content__left__card__text link">My Network Places</div>
                 </div>
                 <div className="com__content__left__card__row">
-                  <img
-                    className="com__content__left__card__img"
-                    src={document}
-                    alt="document"
-                  />
-                  <div className="com__content__left__card__text link">
-                    My Documents
-                  </div>
+                  <img className="com__content__left__card__img" src={document} alt="document" />
+                  <div className="com__content__left__card__text link">My Documents</div>
                 </div>
                 <div className="com__content__left__card__row">
-                  <img
-                    className="com__content__left__card__img"
-                    src={folderSmall}
-                    alt="folder"
-                  />
-                  <div className="com__content__left__card__text link">
-                    Shared Documents
-                  </div>
+                  <img className="com__content__left__card__img" src={folderSmall} alt="folder" />
+                  <div className="com__content__left__card__text link">Shared Documents</div>
                 </div>
                 <div className="com__content__left__card__row">
-                  <img
-                    className="com__content__left__card__img"
-                    src={control}
-                    alt="control"
-                  />
-                  <div className="com__content__left__card__text link">
-                    Control Panel
-                  </div>
+                  <img className="com__content__left__card__img" src={control} alt="control" />
+                  <div className="com__content__left__card__text link">Control Panel</div>
                 </div>
               </div>
             </div>
           </div>
           <div className="com__content__right">
             <div className="com__content__right__card">
-              <div className="com__content__right__card__header">
-                Files Stored on This Computer
-              </div>
+              <div className="com__content__right__card__header">Files Stored on This Computer</div>
               <div className="com__content__right__card__content">
                 <div className="com__content__right__card__item">
-                  <img
-                    src={folder}
-                    alt="folder"
-                    className="com__content__right__card__img"
-                  />
+                  <img src={folder} alt="folder" className="com__content__right__card__img" />
                   <div className="com__content__right__card__img-container">
-                    <div className="com__content__right__card__text">
-                      Shared Documents
-                    </div>
+                    <div className="com__content__right__card__text">Shared Documents</div>
                   </div>
                 </div>
                 <div className="com__content__right__card__item">
-                  <img
-                    src={folder}
-                    alt="folder"
-                    className="com__content__right__card__img"
-                  />
+                  <img src={folder} alt="folder" className="com__content__right__card__img" />
                   <div className="com__content__right__card__img-container">
-                    <div className="com__content__right__card__text">
-                      User's Documents
-                    </div>
+                    <div className="com__content__right__card__text">User's Documents</div>
                   </div>
                 </div>
               </div>
             </div>
             <div className="com__content__right__card">
-              <div className="com__content__right__card__header">
-                Hard Disk Drives
-              </div>
+              <div className="com__content__right__card__header">Hard Disk Drives</div>
               <div className="com__content__right__card__content">
                 <div className="com__content__right__card__item">
-                  <img
-                    src={disk}
-                    alt="disk"
-                    className="com__content__right__card__img"
-                  />
+                  <img src={disk} alt="disk" className="com__content__right__card__img" />
                   <div className="com__content__right__card__img-container">
-                    <div className="com__content__right__card__text">
-                      Local Disk (C:)
-                    </div>
+                    <div className="com__content__right__card__text">Local Disk (C:)</div>
                   </div>
                 </div>
               </div>
@@ -265,15 +166,9 @@ function MyComputer({ onClose }) {
               <div className="com__content__right__card__content">
                 <div className="com__content__right__card__item">
                   <div className="com__content__right__card__img-container">
-                    <img
-                      src={cd}
-                      alt="cd"
-                      className="com__content__right__card__img"
-                    />
+                    <img src={cd} alt="cd" className="com__content__right__card__img" />
                   </div>
-                  <div className="com__content__right__card__text">
-                    CD Drive (D:)
-                  </div>
+                  <div className="com__content__right__card__text">CD Drive (D:)</div>
                 </div>
               </div>
             </div>

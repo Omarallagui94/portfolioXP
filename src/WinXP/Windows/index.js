@@ -5,14 +5,7 @@ import styled from 'styled-components';
 import { useElementResize } from 'hooks';
 import HeaderButtons from './HeaderButtons';
 
-function Windows({
-  apps,
-  onMouseDown,
-  onClose,
-  onMinimize,
-  onMaximize,
-  focusedAppId,
-}) {
+function Windows({ apps, onMouseDown, onClose, onMinimize, onMaximize, focusedAppId }) {
   return (
     <div style={{ position: 'relative', zIndex: 0 }}>
       {apps.map(app => (
@@ -106,11 +99,7 @@ const Window = memo(function({
       }}
     >
       <div className="header__bg" />
-      <header
-        className="app__header"
-        ref={dragRef}
-        onDoubleClick={onDoubleClickHeader}
-      >
+      <header className="app__header" ref={dragRef} onDoubleClick={onDoubleClickHeader}>
         <img
           onDoubleClick={_onMouseUpClose}
           src={header.icon}

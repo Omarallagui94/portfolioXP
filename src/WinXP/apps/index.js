@@ -361,12 +361,4 @@ export const appSettings = {
   },
 };
 
-export {
-  InternetExplorer,
-  Minesweeper,
-  ErrorBox,
-  MyComputer,
-  Notepad,
-  Winamp,
-  AboutMe,
-};
+export { InternetExplorer, Minesweeper, ErrorBox, MyComputer, Notepad, Winamp, AboutMe };

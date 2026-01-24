@@ -90,9 +90,7 @@ function FooterMenu({ className, onClick }) {
             }
             icon={empty}
           >
-            {hovering === 'All Programs' && (
-              <SubMenu data={AllPrograms} onClick={onClick} />
-            )}
+            {hovering === 'All Programs' && <SubMenu data={AllPrograms} onClick={onClick} />}
           </Item>
         </div>
         <div className="menu__right">
@@ -111,17 +109,12 @@ function FooterMenu({ className, onClick }) {
           >
             <div
               style={{
-                borderLeftColor:
-                  hovering === 'My Recent Documents' ? '#FFF' : '#00136b',
+                borderLeftColor: hovering === 'My Recent Documents' ? '#FFF' : '#00136b',
               }}
               className="menu__arrow"
             />
             {hovering === 'My Recent Documents' && (
-              <SubMenu
-                left="153px"
-                data={MyRecentDocuments}
-                onClick={onClick}
-              />
+              <SubMenu left="153px" data={MyRecentDocuments} onClick={onClick} />
             )}
           </Item>
           <Items
@@ -179,10 +172,7 @@ function FooterMenu({ className, onClick }) {
           <img className="footer__item__img" src={lock} alt="" />
           <span>Log Off</span>
         </div>
-        <div
-          className="footer__item"
-          onClick={() => onClick('Turn Off Computer')}
-        >
+        <div className="footer__item" onClick={() => onClick('Turn Off Computer')}>
           <img className="footer__item__img" src={shut} alt="" />
           <span>Turn Off Computer</span>
         </div>
@@ -193,14 +183,7 @@ function FooterMenu({ className, onClick }) {
 function Items({ items, ...rest }) {
   return items.map((item, i) => <Item key={i} {...item} {...rest} />);
 }
-function Item({
-  style,
-  text,
-  icon,
-  onHover = () => {},
-  onClick = () => {},
-  children,
-}) {
+function Item({ style, text, icon, onHover = () => {}, onClick = () => {}, children }) {
   function _onClick() {
     onClick(text);
   }
@@ -208,12 +191,7 @@ function Item({
     onHover(text);
   }
   return (
-    <div
-      className="menu__item"
-      style={style}
-      onClick={_onClick}
-      onMouseEnter={onMouseEnter}
-    >
+    <div className="menu__item" style={style} onClick={_onClick} onMouseEnter={onMouseEnter}>
       <img className="menu__item__img" src={icon} alt={text} />
       <div className="menu__item__texts">
         <div className="menu__item__text ">{text}</div>
@@ -352,12 +330,7 @@ export default styled(FooterMenu)`
     top: 0;
     display: block;
     height: 2px;
-    background: linear-gradient(
-      to right,
-      rgba(0, 0, 0, 0) 0%,
-      #da884a 50%,
-      rgba(0, 0, 0, 0) 100%
-    );
+    background: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, #da884a 50%, rgba(0, 0, 0, 0) 100%);
     border: 0;
   }
   .menu__right {

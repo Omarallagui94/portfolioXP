@@ -72,12 +72,7 @@ function Icon({
     measure({ id, x: posX, y: posY, w: width, h: height });
   }, [id, measure]);
   return (
-    <div
-      className={className}
-      onMouseDown={_onMouseDown}
-      onDoubleClick={_onDoubleClick}
-      ref={ref}
-    >
+    <div className={className} onMouseDown={_onMouseDown} onDoubleClick={_onDoubleClick} ref={ref}>
       <div className={`${className}__img__container`}>
         <img src={icon} alt={title} className={`${className}__img`} />
       </div>
@@ -136,8 +131,7 @@ const StyledIcon = styled(Icon)`
   &__img {
     width: 30px;
     height: 30px;
-    opacity: ${({ isFocus, displayFocus }) =>
-      isFocus && displayFocus ? 0.5 : 1};
+    opacity: ${({ isFocus, displayFocus }) => (isFocus && displayFocus ? 0.5 : 1)};
   }
 `;
 

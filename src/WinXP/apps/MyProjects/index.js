@@ -45,8 +45,7 @@ const DEFAULT_PROJECTS = [
   },
   {
     title: 'Lab Nectar',
-    description:
-      'Coming soon - A new project built with the MERN stack. Stay tuned for updates!',
+    description: 'Coming soon - A new project built with the MERN stack. Stay tuned for updates!',
     tags: ['MERN STACK', 'REACT', 'NODE.JS', 'MONGODB', 'EXPRESS'],
     link: '#',
     image: LabNectarImage,
@@ -63,9 +62,7 @@ function MyProjects({ projects = [], maximized = false, ...props }) {
   const getBackgroundStyle = project => {
     if (project.image) {
       const imagePath =
-        typeof project.image === 'string'
-          ? project.image
-          : project.image.default || project.image;
+        typeof project.image === 'string' ? project.image : project.image.default || project.image;
       return {
         backgroundImage: `url(${imagePath})`,
         backgroundSize: 'cover',
@@ -77,10 +74,7 @@ function MyProjects({ projects = [], maximized = false, ...props }) {
   };
 
   // Get unique categories from projects
-  const categories = [
-    'All',
-    ...new Set(allProjects.map(p => p.category).filter(Boolean)),
-  ];
+  const categories = ['All', ...new Set(allProjects.map(p => p.category).filter(Boolean))];
 
   // Filter projects by selected category
   const filteredProjects =
@@ -101,8 +95,7 @@ function MyProjects({ projects = [], maximized = false, ...props }) {
           <ProjectsHeaderTitle>My Projects</ProjectsHeaderTitle>
         </ProjectsHeaderTitleRow>
         <ProjectsHeaderSubtitle>
-          {allProjects.length}{' '}
-          {allProjects.length === 1 ? 'Project' : 'Projects'}
+          {allProjects.length} {allProjects.length === 1 ? 'Project' : 'Projects'}
         </ProjectsHeaderSubtitle>
       </ProjectsHeader>
 
@@ -124,13 +117,9 @@ function MyProjects({ projects = [], maximized = false, ...props }) {
         {filteredProjects.map((project, index) => (
           <ProjectCard
             key={project.title}
-            href={
-              project.link && project.link !== '#' ? project.link : undefined
-            }
+            href={project.link && project.link !== '#' ? project.link : undefined}
             target={project.link && project.link !== '#' ? '_blank' : undefined}
-            rel={
-              project.link && project.link !== '#' ? 'noreferrer' : undefined
-            }
+            rel={project.link && project.link !== '#' ? 'noreferrer' : undefined}
             as={project.link && project.link !== '#' ? 'a' : 'div'}
           >
             <ProjectThumbnail style={getBackgroundStyle(project)}>
@@ -264,9 +253,7 @@ const CategoryTab = styled.button`
   transition: all 0.2s ease;
   font-family: 'Segoe UI', Roboto, Arial, sans-serif;
   box-shadow: ${props =>
-    props.active
-      ? '0 2px 8px rgba(255, 0, 0, 0.3)'
-      : '0 1px 3px rgba(0, 0, 0, 0.3)'};
+    props.active ? '0 2px 8px rgba(255, 0, 0, 0.3)' : '0 1px 3px rgba(0, 0, 0, 0.3)'};
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -279,9 +266,7 @@ const CategoryTab = styled.button`
     border-color: ${props => (props.active ? 'none' : '#888888')};
     transform: translateY(-1px);
     box-shadow: ${props =>
-      props.active
-        ? '0 3px 10px rgba(255, 0, 0, 0.4)'
-        : '0 2px 6px rgba(0, 0, 0, 0.4)'};
+      props.active ? '0 3px 10px rgba(255, 0, 0, 0.4)' : '0 2px 6px rgba(0, 0, 0, 0.4)'};
   }
 
   &:active {
@@ -337,11 +322,7 @@ const ProjectThumbnail = styled.div`
 const ProjectThumbnailOverlay = styled.div`
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.4) 100%
-  );
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
   opacity: 0.6;
   transition: opacity 0.2s ease;
 

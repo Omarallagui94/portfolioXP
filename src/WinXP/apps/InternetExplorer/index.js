@@ -22,21 +22,9 @@ import stop from 'assets/windowsIcons/stop.png';
 import windows from 'assets/windowsIcons/windows.png';
 import dropdown from 'assets/windowsIcons/dropdown.png';
 
-function InternetExplorer({
-  onClose,
-  mode = 'browser',
-  projects = [],
-  pdfUrl,
-  imageUrl,
-}) {
+function InternetExplorer({ onClose, mode = 'browser', projects = [], pdfUrl, imageUrl }) {
   const initialRoute =
-    mode === 'projects'
-      ? 'projects'
-      : mode === 'pdf'
-      ? 'pdf'
-      : mode === 'image'
-      ? 'image'
-      : 'main';
+    mode === 'projects' ? 'projects' : mode === 'pdf' ? 'pdf' : mode === 'image' ? 'image' : 'main';
   const [state, setState] = useState({
     route: initialRoute,
     query: '',
@@ -55,7 +43,7 @@ function InternetExplorer({
               theme: ['#434343', '#000000'],
             },
           ],
-    [projects],
+    [projects]
   );
   function onSearch(str) {
     if (str.length) {
@@ -94,20 +82,14 @@ function InternetExplorer({
     <Div>
       <section className="ie__toolbar">
         <div className="ie__options">
-          <WindowDropDowns
-            items={dropDownData}
-            onClickItem={onClickOptionItem}
-            height={21}
-          />
+          <WindowDropDowns items={dropDownData} onClickItem={onClickOptionItem} height={21} />
         </div>
         <img className="ie__windows-logo" src={windows} alt="windows" />
       </section>
       <section className="ie__function_bar">
         <div
           onClick={goMain}
-          className={`ie__function_bar__button${
-            state.route === 'main' ? '--disable' : ''
-          }`}
+          className={`ie__function_bar__button${state.route === 'main' ? '--disable' : ''}`}
         >
           <img className="ie__function_bar__icon" src={back} alt="" />
           <span className="ie__function_bar__text">Back</span>
@@ -121,30 +103,18 @@ function InternetExplorer({
           <img className="ie__function_bar__icon--margin-1" src={stop} alt="" />
         </div>
         <div className="ie__function_bar__button">
-          <img
-            className="ie__function_bar__icon--margin-1"
-            src={refresh}
-            alt=""
-          />
+          <img className="ie__function_bar__icon--margin-1" src={refresh} alt="" />
         </div>
         <div className="ie__function_bar__button" onClick={goMain}>
           <img className="ie__function_bar__icon--margin-1" src={home} alt="" />
         </div>
         <div className="ie__function_bar__separate" />
         <div className="ie__function_bar__button">
-          <img
-            className="ie__function_bar__icon--normalize "
-            src={search}
-            alt=""
-          />
+          <img className="ie__function_bar__icon--normalize " src={search} alt="" />
           <span className="ie__function_bar__text">Search</span>
         </div>
         <div className="ie__function_bar__button">
-          <img
-            className="ie__function_bar__icon--normalize"
-            src={favorite}
-            alt=""
-          />
+          <img className="ie__function_bar__icon--normalize" src={favorite} alt="" />
           <span className="ie__function_bar__text">Favorites</span>
         </div>
         <div className="ie__function_bar__button">
@@ -156,11 +126,7 @@ function InternetExplorer({
           <div className="ie__function_bar__arrow--margin-11" />
         </div>
         <div className="ie__function_bar__button">
-          <img
-            className="ie__function_bar__icon--margin12"
-            src={printer}
-            alt=""
-          />
+          <img className="ie__function_bar__icon--margin12" src={printer} alt="" />
         </div>
         <div className="ie__function_bar__button--disable">
           <img className="ie__function_bar__icon" src={edit} alt="" />
@@ -181,16 +147,10 @@ function InternetExplorer({
               : state.route === 'image'
               ? imageUrl || ''
               : `https://www.google.com.tw${
-                  state.route === 'search'
-                    ? `/search?q=${encodeURIComponent(state.query)}`
-                    : ''
+                  state.route === 'search' ? `/search?q=${encodeURIComponent(state.query)}` : ''
                 }`}
           </div>
-          <img
-            src={dropdown}
-            alt="dropdown"
-            className="ie__address_bar__content__img"
-          />
+          <img src={dropdown} alt="dropdown" className="ie__address_bar__content__img" />
         </div>
         <div className="ie__address_bar__go">
           <img className="ie__address_bar__go__img" src={go} alt="go" />
@@ -199,11 +159,7 @@ function InternetExplorer({
         <div className="ie__address_bar__separate" />
         <div className="ie__address_bar__links">
           <span className="ie__address_bar__links__text">Links</span>
-          <img
-            className="ie__address_bar__links__img"
-            src={links}
-            alt="links"
-          />
+          <img className="ie__address_bar__links__img" src={links} alt="links" />
         </div>
       </section>
       <div className="ie__content">
@@ -239,12 +195,7 @@ function InternetExplorer({
               />
             </div>
           ) : (
-            <Google
-              route={state.route}
-              query={state.query}
-              onSearch={onSearch}
-              goMain={goMain}
-            />
+            <Google route={state.route} query={state.query} onSearch={onSearch} goMain={goMain} />
           )}
         </div>
       </div>
@@ -535,10 +486,9 @@ const Div = styled.div`
       height: 2px;
       box-shadow: 2px 0px rgba(0, 0, 0, 0.25), 5.5px 0px rgba(0, 0, 0, 0.25),
         9px 0px rgba(0, 0, 0, 0.25), 5.5px -3.5px rgba(0, 0, 0, 0.25),
-        9px -3.5px rgba(0, 0, 0, 0.25), 9px -7px rgba(0, 0, 0, 0.25),
-        3px 1px rgba(255, 255, 255, 1), 6.5px 1px rgba(255, 255, 255, 1),
-        10px 1px rgba(255, 255, 255, 1), 10px -2.5px rgba(255, 255, 255, 1),
-        10px -6px rgba(255, 255, 255, 1);
+        9px -3.5px rgba(0, 0, 0, 0.25), 9px -7px rgba(0, 0, 0, 0.25), 3px 1px rgba(255, 255, 255, 1),
+        6.5px 1px rgba(255, 255, 255, 1), 10px 1px rgba(255, 255, 255, 1),
+        10px -2.5px rgba(255, 255, 255, 1), 10px -6px rgba(255, 255, 255, 1);
     }
   }
 `;
@@ -551,9 +501,7 @@ function ProjectsView({ projects }) {
   const getBackgroundStyle = project => {
     if (project.image) {
       const imagePath =
-        typeof project.image === 'string'
-          ? project.image
-          : project.image.default || project.image;
+        typeof project.image === 'string' ? project.image : project.image.default || project.image;
       return {
         backgroundImage: `url(${imagePath})`,
         backgroundSize: 'cover',
@@ -567,16 +515,11 @@ function ProjectsView({ projects }) {
   };
 
   // Get unique categories from projects
-  const categories = [
-    'All',
-    ...new Set(projects.map(p => p.category).filter(Boolean)),
-  ];
+  const categories = ['All', ...new Set(projects.map(p => p.category).filter(Boolean))];
 
   // Filter projects by selected category
   const filteredProjects =
-    selectedCategory === 'All'
-      ? projects
-      : projects.filter(p => p.category === selectedCategory);
+    selectedCategory === 'All' ? projects : projects.filter(p => p.category === selectedCategory);
 
   // First project is featured
   const isFeatured = index => index === 0;
@@ -606,13 +549,9 @@ function ProjectsView({ projects }) {
         {filteredProjects.map((project, index) => (
           <ProjectCard
             key={project.title}
-            href={
-              project.link && project.link !== '#' ? project.link : undefined
-            }
+            href={project.link && project.link !== '#' ? project.link : undefined}
             target={project.link && project.link !== '#' ? '_blank' : undefined}
-            rel={
-              project.link && project.link !== '#' ? 'noreferrer' : undefined
-            }
+            rel={project.link && project.link !== '#' ? 'noreferrer' : undefined}
             as={project.link && project.link !== '#' ? 'a' : 'div'}
           >
             <ProjectThumbnail style={getBackgroundStyle(project)}>
@@ -781,11 +720,7 @@ const ProjectThumbnail = styled.div`
 const ProjectThumbnailOverlay = styled.div`
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(0, 0, 0, 0) 0%,
-    rgba(0, 0, 0, 0.4) 100%
-  );
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.4) 100%);
   opacity: 0.6;
   transition: opacity 0.2s ease;
 

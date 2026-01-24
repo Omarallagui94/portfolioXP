@@ -60,8 +60,7 @@ const PROJECTS = [
   },
   {
     title: 'Lab Nectar',
-    description:
-      'Coming soon - A new project built with the MERN stack. Stay tuned for updates!',
+    description: 'Coming soon - A new project built with the MERN stack. Stay tuned for updates!',
     link: '#',
     tags: ['MERN STACK', 'REACT', 'NODE.JS', 'MONGODB', 'EXPRESS'],
     theme: ['#10b981', '#059669'],
@@ -113,7 +112,7 @@ I'm fascinated by areas like ethical hacking, digital forensics, network securit
             detail: {
               app: 'Resume',
             },
-          }),
+          })
         );
       },
     },
@@ -163,7 +162,7 @@ I'm fascinated by areas like ethical hacking, digital forensics, network securit
             },
           },
         },
-      }),
+      })
     );
   }
 
@@ -250,22 +249,19 @@ I'm fascinated by areas like ethical hacking, digital forensics, network securit
               <Highlight>
                 <HighlightTitle>Passion</HighlightTitle>
                 <HighlightText>
-                  Building secure, resilient systems that balance usability and
-                  protection.
+                  Building secure, resilient systems that balance usability and protection.
                 </HighlightText>
               </Highlight>
               <Highlight>
                 <HighlightTitle>Currently Exploring</HighlightTitle>
                 <HighlightText>
-                  Advanced penetration testing, container security, and
-                  cloud-native DevOps.
+                  Advanced penetration testing, container security, and cloud-native DevOps.
                 </HighlightText>
               </Highlight>
               <Highlight>
                 <HighlightTitle>Goal</HighlightTitle>
                 <HighlightText>
-                  Combine cybersecurity expertise with automation to create
-                  seamless defenses.
+                  Combine cybersecurity expertise with automation to create seamless defenses.
                 </HighlightText>
               </Highlight>
             </InfoContent>

@@ -27,12 +27,7 @@ function Winamp({ onClose, onMinimize }) {
       webamp.current.onMinimize(onMinimize);
     }
   });
-  return (
-    <div
-      style={{ position: 'fixed', left: 0, top: 0, right: 0, bottom: 0 }}
-      ref={ref}
-    />
-  );
+  return <div style={{ position: 'fixed', left: 0, top: 0, right: 0, bottom: 0 }} ref={ref} />;
 }
 
 export default Winamp;

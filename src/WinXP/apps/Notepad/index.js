@@ -18,9 +18,7 @@ export default function Notepad({ onClose }) {
         break;
       case 'Time/Date':
         const date = new Date();
-        setDocText(
-          `${docText}${date.toLocaleTimeString()} ${date.toLocaleDateString()}`,
-        );
+        setDocText(`${docText}${date.toLocaleTimeString()} ${date.toLocaleDateString()}`);
         break;
       default:
     }

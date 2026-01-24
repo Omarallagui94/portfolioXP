@@ -28,11 +28,7 @@ function HeaderButtons({
       />
     ),
     close: (
-      <button
-        key="button"
-        className="header__button header__button--close"
-        onMouseUp={onClose}
-      />
+      <button key="button" className="header__button header__button--close" onMouseUp={onClose} />
     ),
   };
 

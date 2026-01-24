@@ -14,7 +14,7 @@ function Modal(props) {
     <StyledContainer>
       <Menu {...props} />
     </StyledContainer>,
-    document.body,
+    document.body
   );
 }
 
@@ -84,13 +84,7 @@ const Button = ({ style, img, text, onClick }) => {
   }
   return (
     <div className="button-container">
-      <img
-        onClick={_onClick}
-        style={{ ...style }}
-        src={img}
-        alt={text}
-        className="button-img"
-      />
+      <img onClick={_onClick} style={{ ...style }} src={img} alt={text} className="button-img" />
       <span className="button-text">{text}</span>
     </div>
   );
@@ -138,13 +132,7 @@ const StyledContainer = styled(Container)`
   }
   .content {
     flex: 1;
-    background: linear-gradient(
-      to right,
-      #3349e0 0%,
-      #617ee6 47%,
-      #617ee6 53%,
-      #3349e0 100%
-    );
+    background: linear-gradient(to right, #3349e0 0%, #617ee6 47%, #617ee6 53%, #3349e0 100%);
     display: flex;
     align-items: center;
     justify-content: space-around;
@@ -215,8 +203,8 @@ const StyledContainer = styled(Container)`
     margin-right: 10px;
     height: 16px;
     border-radius: 1px;
-    box-shadow: 2px 2px 4px 1px #0005b0, 2px 2px 2px 0px white,
-      inset 0 0 0 1px skyblue, inset 2px -2px skyblue;
+    box-shadow: 2px 2px 4px 1px #0005b0, 2px 2px 2px 0px white, inset 0 0 0 1px skyblue,
+      inset 2px -2px skyblue;
     border: none;
     outline: none;
     &:hover {

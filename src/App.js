@@ -31,8 +31,7 @@ const App = () => {
   };
 
   if (step === 'BOOT') return <LoadingScreen />;
-  if (step === 'LOGIN')
-    return <Login onLogin={handleLogin} onTurnOff={handleTurnOff} />;
+  if (step === 'LOGIN') return <Login onLogin={handleLogin} onTurnOff={handleTurnOff} />;
   return <WinXP onShutdown={handleTurnOff} />;
 };
 

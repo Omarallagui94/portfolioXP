@@ -36,9 +36,7 @@ const initState = {
 const reducer = (state, action = { type: '' }) => {
   switch (action.type) {
     case ADD_APP:
-      const app = state.apps.find(
-        _app => _app.component === action.payload.component,
-      );
+      const app = state.apps.find(_app => _app.component === action.payload.component);
       if (action.payload.multiInstance || !app) {
         return {
           ...state,
@@ -58,7 +56,7 @@ const reducer = (state, action = { type: '' }) => {
       const apps = state.apps.map(app =>
         app.component === action.payload.component
           ? { ...app, zIndex: state.nextZIndex, minimized: false }
-          : app,
+          : app
       );
       return {
         ...state,
@@ -80,9 +78,7 @@ const reducer = (state, action = { type: '' }) => {
       };
     case FOCUS_APP: {
       const apps = state.apps.map(app =>
-        app.id === action.payload
-          ? { ...app, zIndex: state.nextZIndex, minimized: false }
-          : app,
+        app.id === action.payload ? { ...app, zIndex: state.nextZIndex, minimized: false } : app
       );
       return {
         ...state,
@@ -94,7 +90,7 @@ const reducer = (state, action = { type: '' }) => {
     case MINIMIZE_APP: {
       if (state.focusing !== FOCUSING.WINDOW) return state;
       const apps = state.apps.map(app =>
-        app.id === action.payload ? { ...app, minimized: true } : app,
+        app.id === action.payload ? { ...app, minimized: true } : app
       );
       return {
         ...state,
@@ -105,7 +101,7 @@ const reducer = (state, action = { type: '' }) => {
     case TOGGLE_MAXIMIZE_APP: {
       if (state.focusing !== FOCUSING.WINDOW) return state;
       const apps = state.apps.map(app =>
-        app.id === action.payload ? { ...app, maximized: !app.maximized } : app,
+        app.id === action.payload ? { ...app, maximized: !app.maximized } : app
       );
       return {
         ...state,
@@ -206,7 +202,7 @@ function WinXP(props) {
         dispatch({ type: TOGGLE_MAXIMIZE_APP, payload: id });
       }
     },
-    [focusedAppId],
+    [focusedAppId]
   );
   const onMinimizeWindow = useCallback(
     id => {
@@ -214,7 +210,7 @@ function WinXP(props) {
         dispatch({ type: MINIMIZE_APP, payload: id });
       }
     },
-    [focusedAppId],
+    [focusedAppId]
   );
   const onCloseApp = useCallback(
     id => {
@@ -222,7 +218,7 @@ function WinXP(props) {
         dispatch({ type: DEL_APP, payload: id });
       }
     },
-    [focusedAppId],
+    [focusedAppId]
   );
   function onMouseDownFooterApp(id) {
     if (focusedAppId === id) {
@@ -238,9 +234,7 @@ function WinXP(props) {
     const { appKey, component } = icon || {};
     const appSetting = appKey
       ? appSettings[appKey]
-      : Object.values(appSettings).find(
-          setting => setting.component === component,
-        );
+      : Object.values(appSettings).find(setting => setting.component === component);
     if (!appSetting) return;
     dispatch({ type: ADD_APP, payload: appSetting });
   }
@@ -255,20 +249,13 @@ function WinXP(props) {
     dispatch({ type: FOCUS_DESKTOP });
   }
   function onClickMenuItem(o) {
-    if (o === 'Internet')
-      dispatch({ type: ADD_APP, payload: appSettings['Internet Explorer'] });
-    else if (o === 'Minesweeper')
-      dispatch({ type: ADD_APP, payload: appSettings.Minesweeper });
-    else if (o === 'My Computer')
-      dispatch({ type: ADD_APP, payload: appSettings['My Computer'] });
-    else if (o === 'Notepad')
-      dispatch({ type: ADD_APP, payload: appSettings.Notepad });
-    else if (o === 'Winamp')
-      dispatch({ type: ADD_APP, payload: appSettings.Winamp });
-    else if (o === 'Paint')
-      dispatch({ type: ADD_APP, payload: appSettings.Paint });
-    else if (o === 'Log Off')
-      dispatch({ type: POWER_OFF, payload: POWER_STATE.LOG_OFF });
+    if (o === 'Internet') dispatch({ type: ADD_APP, payload: appSettings['Internet Explorer'] });
+    else if (o === 'Minesweeper') dispatch({ type: ADD_APP, payload: appSettings.Minesweeper });
+    else if (o === 'My Computer') dispatch({ type: ADD_APP, payload: appSettings['My Computer'] });
+    else if (o === 'Notepad') dispatch({ type: ADD_APP, payload: appSettings.Notepad });
+    else if (o === 'Winamp') dispatch({ type: ADD_APP, payload: appSettings.Winamp });
+    else if (o === 'Paint') dispatch({ type: ADD_APP, payload: appSettings.Paint });
+    else if (o === 'Log Off') dispatch({ type: POWER_OFF, payload: POWER_STATE.LOG_OFF });
     else if (o === 'Turn Off Computer')
       dispatch({ type: POWER_OFF, payload: POWER_STATE.TURN_OFF });
     else
@@ -294,7 +281,7 @@ function WinXP(props) {
     iconIds => {
       dispatch({ type: SELECT_ICONS, payload: iconIds });
     },
-    [dispatch],
+    [dispatch]
   );
   function onClickModalButton(text) {
     dispatch({ type: CANCEL_POWER_OFF });
@@ -344,11 +331,7 @@ function WinXP(props) {
         onClickMenuItem={onClickMenuItem}
       />
       {state.powerState !== POWER_STATE.START && (
-        <Modal
-          onClose={onModalClose}
-          onClickButton={onClickModalButton}
-          mode={state.powerState}
-        />
+        <Modal onClose={onModalClose} onClickButton={onClickModalButton} mode={state.powerState} />
       )}
     </Container>
   );

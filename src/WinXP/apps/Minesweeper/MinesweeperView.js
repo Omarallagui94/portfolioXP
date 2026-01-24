@@ -33,18 +33,7 @@ import digit8 from 'assets/minesweeper/digit8.png';
 import digit9 from 'assets/minesweeper/digit9.png';
 import digit_ from 'assets/minesweeper/digit-.png';
 
-const digits = [
-  digit0,
-  digit1,
-  digit2,
-  digit3,
-  digit4,
-  digit5,
-  digit6,
-  digit7,
-  digit8,
-  digit9,
-];
+const digits = [digit0, digit1, digit2, digit3, digit4, digit5, digit6, digit7, digit8, digit9];
 function renderDigits(number) {
   let numberStr;
   if (number < 0) {
@@ -69,9 +58,7 @@ function renderDigits(number) {
   numberStr = number < 999 ? String(number) : '999';
   if (number < 10) numberStr = '00' + numberStr;
   else if (number < 100) numberStr = '0' + numberStr;
-  return numberStr
-    .split('')
-    .map((n, i) => <img key={i} src={digits[n]} alt={n} />);
+  return numberStr.split('').map((n, i) => <img key={i} src={digits[n]} alt={n} />);
 }
 
 function genDropDownData(difficulty) {
@@ -102,9 +89,7 @@ function MineSweeperView({
   const [openBehavior, setOpenBehavior] = useState({ index: -1, behavior: '' });
   function remainMines() {
     return (
-      mines -
-      ceils.filter(ceil => ceil.state === 'flag' || ceil.state === 'misflagged')
-        .length
+      mines - ceils.filter(ceil => ceil.state === 'flag' || ceil.state === 'misflagged').length
     );
   }
   function statusFace() {
@@ -120,12 +105,7 @@ function MineSweeperView({
   }
   function onMouseDownContent(e) {
     if (e.button !== 0) return;
-    if (
-      face.current.contains(e.target) ||
-      status === 'won' ||
-      status === 'died'
-    )
-      return;
+    if (face.current.contains(e.target) || status === 'won' || status === 'died') return;
     setMouseDownContent(true);
   }
   useEffect(() => {
@@ -143,7 +123,7 @@ function MineSweeperView({
   function onMouseDownCeils(e) {
     const index = Array.prototype.indexOf.call(
       e.currentTarget.children,
-      e.target.closest('.mine__ceil'),
+      e.target.closest('.mine__ceil')
     );
     if (e.button === 2 && e.buttons === 2 && index !== -1) {
       changeCeilState(index);
@@ -162,7 +142,7 @@ function MineSweeperView({
   function onMouseOverCeils(e) {
     const index = Array.prototype.indexOf.call(
       e.currentTarget.children,
-      e.target.closest('.mine__ceil'),
+      e.target.closest('.mine__ceil')
     );
     setOpenBehavior({
       index,
@@ -213,16 +193,11 @@ function MineSweeperView({
   return (
     <div className={className} onContextMenu={e => e.preventDefault()}>
       <div className="mine__options">
-        <WindowDropDowns
-          items={genDropDownData(difficulty)}
-          onClickItem={onClickOptionItem}
-        />
+        <WindowDropDowns items={genDropDownData(difficulty)} onClickItem={onClickOptionItem} />
       </div>
       <section className="mine__content" onMouseDown={onMouseDownContent}>
         <div className="mine__score-bar">
-          <div className="mine__digits__outer">
-            {renderDigits(remainMines())}
-          </div>
+          <div className="mine__digits__outer">{renderDigits(remainMines())}</div>
           <div className="mine__face__outer">
             <button ref={face} className="mine__face" onClick={() => onReset()}>
               {statusFace()}
@@ -387,8 +362,7 @@ export default styled(MineSweeperView)`
     background-color: rgb(192, 192, 192);
     border-width: 2px;
     border-style: solid;
-    border-color: rgb(245, 245, 245) rgb(128, 128, 128) rgb(128, 128, 128)
-      rgb(245, 245, 245);
+    border-color: rgb(245, 245, 245) rgb(128, 128, 128) rgb(128, 128, 128) rgb(245, 245, 245);
     outline: none;
     &:active:hover {
       border-width: 1px;

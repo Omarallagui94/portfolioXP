@@ -30,11 +30,7 @@ const SubMenuItem = ({ index, item, className, hover, onHover, onClick }) => {
   switch (item.type) {
     case 'item':
       return (
-        <div
-          onClick={_onClick}
-          onMouseEnter={_onMouseOver}
-          className={`${className}-item`}
-        >
+        <div onClick={_onClick} onMouseEnter={_onMouseOver} className={`${className}-item`}>
           <img className={`${className}-img`} src={item.icon} alt="" />
           <div className={`${className}-text`}>{item.text}</div>
         </div>
@@ -43,20 +39,11 @@ const SubMenuItem = ({ index, item, className, hover, onHover, onClick }) => {
       return <div className={`${className}-separator`} />;
     case 'menu':
       return (
-        <div
-          onMouseEnter={_onMouseOver}
-          className={`${className}-item ${hover ? 'hover' : ''}`}
-        >
+        <div onMouseEnter={_onMouseOver} className={`${className}-item ${hover ? 'hover' : ''}`}>
           <img className={`${className}-img`} src={item.icon} alt="" />
           <div className={`${className}-text`}>{item.text}</div>
           <div className={`${className}-arrow`}>
-            {hover && (
-              <StyledSubMenu
-                data={item.items}
-                bottom={item.bottom}
-                onClick={onClick}
-              />
-            )}
+            {hover && <StyledSubMenu data={item.items} bottom={item.bottom} onClick={onClick} />}
           </div>
         </div>
       );
