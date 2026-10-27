@@ -52,7 +52,8 @@ function MyProjects({ projects = [], maximized = false, ...props }) {
           <ProjectsHeaderTitle>My Projects</ProjectsHeaderTitle>
         </ProjectsHeaderTitleRow>
         <ProjectsHeaderSubtitle>
-          {allProjects.length} {allProjects.length === 1 ? 'Project' : 'Projects'}
+          Cloud engineering, DevSecOps, and full-stack work · {allProjects.length}{' '}
+          {allProjects.length === 1 ? 'project' : 'projects'}
         </ProjectsHeaderSubtitle>
       </ProjectsHeader>
 
@@ -63,6 +64,7 @@ function MyProjects({ projects = [], maximized = false, ...props }) {
               key={category}
               active={selectedCategory === category}
               onClick={() => setSelectedCategory(category)}
+              aria-pressed={selectedCategory === category}
             >
               {category}
             </CategoryTab>
@@ -84,7 +86,7 @@ function MyProjects({ projects = [], maximized = false, ...props }) {
                 <ProjectVisual accent={project.accent}>
                   <ProjectVisualMark>{project.visual}</ProjectVisualMark>
                   <ProjectVisualTitle>{project.title}</ProjectVisualTitle>
-                  <ProjectVisualMeta>{project.tags.slice(0, 4).join('  •  ')}</ProjectVisualMeta>
+                  <ProjectVisualMeta>{project.tags.slice(0, 4).join('  /  ')}</ProjectVisualMeta>
                 </ProjectVisual>
               )}
               <ProjectThumbnailOverlay />
@@ -93,6 +95,11 @@ function MyProjects({ projects = [], maximized = false, ...props }) {
                   <FeaturedIcon>★</FeaturedIcon>
                   FEATURED
                 </FeaturedBadge>
+              )}
+              {project.link && project.link !== '#' && (
+                <ProjectLinkHint>
+                  View project <span aria-hidden="true">↗</span>
+                </ProjectLinkHint>
               )}
             </ProjectThumbnail>
             <ProjectInfo>
@@ -133,8 +140,9 @@ const ProjectsWrapper = styled.div`
 const ProjectsHeader = styled.div`
   display: flex;
   flex-direction: column;
+  flex-shrink: 0;
   gap: 4px;
-  padding-bottom: 12px;
+  padding-bottom: 16px;
   border-bottom: 1px solid #272727;
 `;
 
@@ -155,7 +163,7 @@ const ProjectsHeaderTitle = styled.h1`
 const ProjectsHeaderSubtitle = styled.p`
   margin: 0;
   font-size: 14px;
-  color: #aaaaaa;
+  color: #b8b8b8;
   font-weight: 400;
 `;
 
@@ -181,9 +189,10 @@ const YouTubePlay = styled.div`
 
 const CategoryTabs = styled.div`
   display: flex;
+  flex-shrink: 0;
   gap: 12px;
-  padding: 0 0 24px 0;
-  margin-bottom: 12px;
+  padding: 0 0 10px;
+  margin-bottom: 2px;
   overflow-x: auto;
 
   &::-webkit-scrollbar {
@@ -205,12 +214,12 @@ const CategoryTabs = styled.div`
 `;
 
 const CategoryTab = styled.button`
-  background: ${props => (props.active ? '#ff0000' : '#4a4a4a')};
+  background: ${props => (props.active ? '#ff0000' : '#282828')};
   color: ${props => (props.active ? '#ffffff' : '#e0e0e0')};
-  border: ${props => (props.active ? 'none' : '1px solid #666666')};
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-size: 14px;
+  border: 1px solid ${props => (props.active ? '#ff3838' : '#454545')};
+  padding: 8px 16px;
+  border-radius: 18px;
+  font-size: 13px;
   font-weight: ${props => (props.active ? '600' : '500')};
   cursor: pointer;
   white-space: nowrap;
@@ -225,7 +234,7 @@ const CategoryTab = styled.button`
   line-height: 1.2;
 
   &:hover {
-    background: ${props => (props.active ? '#cc0000' : '#5a5a5a')};
+    background: ${props => (props.active ? '#d90000' : '#3b3b3b')};
     color: #ffffff;
     border-color: ${props => (props.active ? 'none' : '#888888')};
     transform: translateY(-1px);
@@ -240,7 +249,7 @@ const CategoryTab = styled.button`
 
 const ProjectsGrid = styled.div`
   display: grid;
-  gap: 24px 16px;
+  gap: 20px 16px;
   grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
 
   @media (max-width: 1200px) {
@@ -255,14 +264,20 @@ const ProjectsGrid = styled.div`
 const ProjectCard = styled.a`
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 0;
+  padding: 6px;
+  background: #171717;
+  border: 1px solid #262626;
+  border-radius: 14px;
   text-decoration: none;
   color: #fff;
   cursor: ${props => (props.href ? 'pointer' : 'default')};
-  transition: transform 0.2s ease;
+  transition: transform 0.2s ease, border-color 0.2s ease, background 0.2s ease;
 
   &:hover {
     transform: ${props => (props.href ? 'translateY(-2px)' : 'none')};
+    border-color: ${props => (props.href ? '#454545' : '#262626')};
+    background: ${props => (props.href ? '#1c1c1c' : '#171717')};
   }
 `;
 
@@ -270,7 +285,7 @@ const ProjectThumbnail = styled.div`
   position: relative;
   width: 100%;
   padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  border-radius: 12px;
+  border-radius: 9px;
   overflow: hidden;
   background-size: cover;
   background-position: center;
@@ -350,10 +365,33 @@ const FeaturedIcon = styled.span`
   line-height: 1;
 `;
 
+const ProjectLinkHint = styled.span`
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+  padding: 6px 9px;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-radius: 14px;
+  background: rgba(10, 10, 10, 0.82);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  ${ProjectCard}:hover & {
+    opacity: 1;
+    transform: translateY(0);
+  }
+`;
+
 const ProjectInfo = styled.div`
   display: flex;
   flex-direction: column;
   gap: 8px;
+  padding: 12px 8px 10px;
 `;
 
 const ProjectTitle = styled.h3`
