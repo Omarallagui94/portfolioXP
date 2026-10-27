@@ -87,11 +87,14 @@ const IconsContainer = styled.div`
   position: absolute;
   margin-top: 40px;
   margin-left: 40px;
+  display: grid;
+  grid-template-rows: repeat(8, 80px);
+  grid-auto-flow: column;
+  grid-auto-columns: 85px;
 `;
 
 const StyledIcon = styled(Icon)`
   width: 70px;
-  margin-bottom: 30px;
   display: flex;
   flex-direction: column;
   align-items: center;
