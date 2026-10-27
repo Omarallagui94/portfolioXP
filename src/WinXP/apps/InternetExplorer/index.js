@@ -22,7 +22,14 @@ import stop from 'assets/windowsIcons/stop.png';
 import windows from 'assets/windowsIcons/windows.png';
 import dropdown from 'assets/windowsIcons/dropdown.png';
 
-function InternetExplorer({ onClose, mode = 'browser', projects = [], pdfUrl, imageUrl }) {
+function InternetExplorer({
+  onClose,
+  mode = 'browser',
+  projects = [],
+  pdfUrl,
+  imageUrl,
+  imageAlt = 'Certificate',
+}) {
   const initialRoute =
     mode === 'projects' ? 'projects' : mode === 'pdf' ? 'pdf' : mode === 'image' ? 'image' : 'main';
   const [state, setState] = useState({
@@ -185,7 +192,7 @@ function InternetExplorer({ onClose, mode = 'browser', projects = [], pdfUrl, im
             >
               <img
                 src={imageUrl || ''}
-                alt="CPPS Certificate"
+                alt={imageAlt}
                 style={{
                   maxWidth: '100%',
                   maxHeight: '100%',

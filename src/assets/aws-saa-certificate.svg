@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="952" height="726" viewBox="0 0 952 726">
+  <rect width="952" height="726" fill="#232f3e"/>
+  <text x="62" y="95" fill="#fff" font-family="Arial,sans-serif" font-size="42">aws</text>
+  <path d="M64 103 Q112 121 158 102" fill="none" stroke="#ff9900" stroke-width="4"/>
+  <path d="M146 98 l13 4 -8 10" fill="#ff9900"/>
+  <rect x="141" y="69" width="23" height="23" rx="4" transform="rotate(45 152 80)" fill="#ff9900"/>
+  <text x="174" y="95" fill="#e7e9ec" font-family="Arial,sans-serif" font-size="42" font-weight="300">certified</text>
+  <text x="65" y="195" fill="#fff" font-family="Arial,sans-serif" font-size="56" font-weight="700">Omar Allagui</text>
+  <text x="66" y="278" fill="#fff" font-family="Arial,sans-serif" font-size="30">AWS Certified Solutions Architect - Associate</text>
+  <rect x="48" y="470" width="866" height="133" fill="none" stroke="#ff9900" stroke-width="2"/>
+  <text x="96" y="526" fill="#fff" font-family="Arial,sans-serif" font-size="25" font-weight="700">VALIDATION NUMBER:</text>
+  <text x="375" y="526" fill="#fff" font-family="Arial,sans-serif" font-size="26">87cd81d05c164355b7ac9d68397f7dbd</text>
+  <text x="96" y="567" fill="#fff" font-family="Arial,sans-serif" font-size="25" font-weight="700">VALIDATE AT:</text>
+  <text x="266" y="567" fill="#ff9900" font-family="Arial,sans-serif" font-size="23" text-decoration="underline">https://aws.amazon.com/verification</text>
+  <text x="59" y="647" fill="#fff" font-family="Arial,sans-serif" font-size="20" font-weight="700">Issue Date:</text>
+  <text x="174" y="647" fill="#fff" font-family="Arial,sans-serif" font-size="23">April 22, 2026</text>
+  <text x="59" y="683" fill="#fff" font-family="Arial,sans-serif" font-size="20" font-weight="700">Expiration Date:</text>
+  <text x="219" y="683" fill="#fff" font-family="Arial,sans-serif" font-size="23">April 22, 2029</text>
+</svg>

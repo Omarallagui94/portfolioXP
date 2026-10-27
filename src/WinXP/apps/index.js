@@ -22,6 +22,10 @@ import userIcon from 'assets/windowsIcons/user.png';
 import folderOpen from 'assets/windowsIcons/337(32x32).png';
 import cppsLogo from 'assets/windowsIcons/289(32x32).png';
 import cppsImage from 'assets/cpps.PNG';
+import awsCertLogo from 'assets/windowsIcons/aws-cert.svg';
+import awsCertImage from 'assets/aws-saa-certificate.svg';
+import esocCertLogo from 'assets/windowsIcons/esoc-cert.svg';
+import esocCertImage from 'assets/esoc-certificate.svg';
 import resumePdf from 'assets/CV Omar.pdf';
 
 const gen = () => {
@@ -134,6 +138,22 @@ export const defaultIconState = [
     title: 'CPPS Certificate',
     component: InternetExplorer,
     appKey: 'CPPS',
+    isFocus: false,
+  },
+  {
+    id: 8,
+    icon: awsCertLogo,
+    title: 'AWS SAA Certificate',
+    component: InternetExplorer,
+    appKey: 'AWS Certificate',
+    isFocus: false,
+  },
+  {
+    id: 9,
+    icon: esocCertLogo,
+    title: 'eSOC Certificate',
+    component: InternetExplorer,
+    appKey: 'eSOC Certificate',
     isFocus: false,
   },
 ];
@@ -315,6 +335,54 @@ export const appSettings = {
     injectProps: {
       mode: 'image',
       imageUrl: cppsImage,
+    },
+  },
+  'AWS Certificate': {
+    header: {
+      icon: awsCertLogo,
+      title: 'AWS Solutions Architect Certificate',
+    },
+    component: InternetExplorer,
+    defaultSize: {
+      width: 900,
+      height: 650,
+    },
+    defaultOffset: {
+      x: 180,
+      y: 35,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 900,
+    multiInstance: false,
+    injectProps: {
+      mode: 'image',
+      imageUrl: awsCertImage,
+      imageAlt: 'AWS Certified Solutions Architect - Associate certificate for Omar Allagui',
+    },
+  },
+  'eSOC Certificate': {
+    header: {
+      icon: esocCertLogo,
+      title: 'eSOC Certificate',
+    },
+    component: InternetExplorer,
+    defaultSize: {
+      width: 820,
+      height: 650,
+    },
+    defaultOffset: {
+      x: 210,
+      y: 45,
+    },
+    resizable: true,
+    minimized: false,
+    maximized: window.innerWidth < 900,
+    multiInstance: false,
+    injectProps: {
+      mode: 'image',
+      imageUrl: esocCertImage,
+      imageAlt: 'eSOC Security Operations Certified certificate for Omar Allagui',
     },
   },
   Resume: {
