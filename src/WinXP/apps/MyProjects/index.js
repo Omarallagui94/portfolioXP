@@ -1,63 +1,12 @@
 import React from 'react';
 import styled from 'styled-components';
-import InsightImage from 'assets/Insight.png';
-import MasterOfSfaxImage from 'assets/MasterOfSfax.png';
-import RecruteMeImage from 'assets/RecruteMe.PNG';
-import RentyImage from 'assets/Renty.png';
-import LabNectarImage from 'assets/LabNectar.png';
-
-const DEFAULT_PROJECTS = [
-  {
-    title: 'RecruteMe',
-    description:
-      'A modern job recruitment platform connecting job seekers with their dream opportunities. Features include job listings, application tracking, and employer dashboards.',
-    tags: ['MERN STACK', 'REACT', 'NODE.JS', 'MONGODB', 'EXPRESS'],
-    link: 'https://github.com/omaraallagui/RecruteMe',
-    image: RecruteMeImage,
-    // No category - only shows in 'All'
-  },
-  {
-    title: 'MasterOfSfax',
-    description:
-      'University management dashboard for Université de Sfax. Includes student management, course scheduling, teacher assignments, and academic calendar integration.',
-    tags: ['MERN STACK', 'REACT', 'NODE.JS', 'MONGODB', 'EXPRESS'],
-    link: 'https://github.com/omaraallagui/MasterOfsfax',
-    image: MasterOfSfaxImage,
-    category: 'Dev',
-  },
-  {
-    title: 'Renty',
-    description:
-      'Car rental platform providing easy and affordable car rental services. Features include car search, booking management, and secure payment processing.',
-    tags: ['MERN STACK', 'REACT', 'NODE.JS', 'MONGODB', 'EXPRESS'],
-    link: 'https://github.com/omaraallagui/renty',
-    image: RentyImage,
-    category: 'Dev',
-  },
-  {
-    title: 'Insight',
-    description:
-      'A versatile Point of Sales platform tailored to manage sales, inventory, and customer transactions for various types of stores with ease and efficiency.',
-    tags: ['REACT', 'MONGODB', 'TAILWIND', 'NODE.JS', 'EXPRESS.JS'],
-    link: '#',
-    image: InsightImage,
-    category: 'Dev',
-  },
-  {
-    title: 'Lab Nectar',
-    description: 'Coming soon - A new project built with the MERN stack. Stay tuned for updates!',
-    tags: ['MERN STACK', 'REACT', 'NODE.JS', 'MONGODB', 'EXPRESS'],
-    link: '#',
-    image: LabNectarImage,
-    category: 'Dev',
-  },
-];
+import projectsData from 'data/projects';
 
 function MyProjects({ projects = [], maximized = false, ...props }) {
   const [selectedCategory, setSelectedCategory] = React.useState('All');
 
   // Use provided projects or default
-  const allProjects = projects.length ? projects : DEFAULT_PROJECTS;
+  const allProjects = projects.length ? projects : projectsData;
 
   const getBackgroundStyle = project => {
     if (project.image) {
@@ -74,16 +23,24 @@ function MyProjects({ projects = [], maximized = false, ...props }) {
   };
 
   // Get unique categories from projects
-  const categories = ['All', ...new Set(allProjects.map(p => p.category).filter(Boolean))];
+  const categories = [
+    'All',
+    ...new Set(
+      allProjects.flatMap(
+        project => project.categories || (project.category ? [project.category] : [])
+      )
+    ),
+  ];
 
   // Filter projects by selected category
   const filteredProjects =
     selectedCategory === 'All'
       ? allProjects
-      : allProjects.filter(p => p.category === selectedCategory);
-
-  // First project is featured
-  const isFeatured = index => index === 0;
+      : allProjects.filter(project =>
+          (project.categories || (project.category ? [project.category] : [])).includes(
+            selectedCategory
+          )
+        );
 
   return (
     <ProjectsWrapper>
@@ -114,7 +71,7 @@ function MyProjects({ projects = [], maximized = false, ...props }) {
       )}
 
       <ProjectsGrid>
-        {filteredProjects.map((project, index) => (
+        {filteredProjects.map(project => (
           <ProjectCard
             key={project.title}
             href={project.link && project.link !== '#' ? project.link : undefined}
@@ -123,8 +80,15 @@ function MyProjects({ projects = [], maximized = false, ...props }) {
             as={project.link && project.link !== '#' ? 'a' : 'div'}
           >
             <ProjectThumbnail style={getBackgroundStyle(project)}>
+              {!project.image && (
+                <ProjectVisual accent={project.accent}>
+                  <ProjectVisualMark>{project.visual}</ProjectVisualMark>
+                  <ProjectVisualTitle>{project.title}</ProjectVisualTitle>
+                  <ProjectVisualMeta>{project.tags.slice(0, 4).join('  •  ')}</ProjectVisualMeta>
+                </ProjectVisual>
+              )}
               <ProjectThumbnailOverlay />
-              {isFeatured(index) && (
+              {project.featured && (
                 <FeaturedBadge>
                   <FeaturedIcon>★</FeaturedIcon>
                   FEATURED
@@ -329,6 +293,38 @@ const ProjectThumbnailOverlay = styled.div`
   ${ProjectCard}:hover & {
     opacity: 0.3;
   }
+`;
+
+const ProjectVisual = styled.div`
+  position: absolute;
+  inset: 0;
+  padding: 30px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: ${({ accent = ['#2563eb', '#111827'] }) =>
+    `radial-gradient(circle at 85% 20%, ${accent[0]}55, transparent 32%), linear-gradient(135deg, ${accent[1]}, #080b12)`};
+  color: #fff;
+`;
+
+const ProjectVisualMark = styled.span`
+  color: #9ec5ff;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+`;
+
+const ProjectVisualTitle = styled.strong`
+  max-width: 92%;
+  margin: 8px 0 14px;
+  font-size: 24px;
+  line-height: 1.08;
+`;
+
+const ProjectVisualMeta = styled.span`
+  color: #cbd5e1;
+  font-size: 10px;
+  letter-spacing: 0.4px;
 `;
 
 const FeaturedBadge = styled.div`

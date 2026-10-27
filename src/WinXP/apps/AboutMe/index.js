@@ -14,59 +14,8 @@ import up from 'assets/windowsIcons/up.png';
 import search from 'assets/windowsIcons/299(32x32).png';
 import folderOpen from 'assets/windowsIcons/337(32x32).png';
 import menu from 'assets/windowsIcons/358(32x32).png';
-import InsightImage from 'assets/Insight.png';
-import LabNectarImage from 'assets/LabNectar.png';
-import MasterOfSfaxImage from 'assets/MasterOfSfax.png';
-import RecruteMeImage from 'assets/RecruteMe.PNG';
-import RentyImage from 'assets/Renty.png';
 import pic from 'assets/pic.png';
-
-const PROJECTS = [
-  {
-    title: 'RecruteMe',
-    description:
-      'A modern job recruitment platform connecting job seekers with their dream opportunities. Features include job listings, application tracking, and employer dashboards.',
-    link: 'https://github.com/Omarallagui94/eLearning',
-    tags: ['MERN STACK', 'REACT', 'NODE.JS', 'MONGODB', 'EXPRESS'],
-    theme: ['#8b5cf6', '#6366f1'],
-    image: RecruteMeImage,
-  },
-  {
-    title: 'MasterOfSfax',
-    description:
-      'University management dashboard for Université de Sfax. Includes student management, course scheduling, teacher assignments, and academic calendar integration.',
-    link: 'https://github.com/Omarallagui94/MasterSfaxLatest',
-    tags: ['MERN STACK', 'REACT', 'NODE.JS', 'MONGODB', 'EXPRESS'],
-    theme: ['#3b82f6', '#1e40af'],
-    image: MasterOfSfaxImage,
-  },
-  {
-    title: 'Renty',
-    description:
-      'Car rental platform providing easy and affordable car rental services. Features include car search, booking management, and secure payment processing.',
-    link: 'https://github.com/Omarallagui94/renty',
-    tags: ['MERN STACK', 'REACT', 'NODE.JS', 'MONGODB', 'EXPRESS'],
-    theme: ['#0ea5e9', '#0284c7'],
-    image: RentyImage,
-  },
-  {
-    title: 'Insight',
-    description:
-      'A versatile Point of Sales platform tailored to manage sales, inventory, and customer transactions for various types of stores with ease and efficiency.',
-    link: '#',
-    tags: ['REACT', 'MONGODB', 'TAILWIND', 'NODE.JS', 'EXPRESS.JS'],
-    theme: ['#fb7185', '#f43f5e'],
-    image: InsightImage,
-  },
-  {
-    title: 'Lab Nectar',
-    description: 'Coming soon - A new project built with the MERN stack. Stay tuned for updates!',
-    link: '#',
-    tags: ['MERN STACK', 'REACT', 'NODE.JS', 'MONGODB', 'EXPRESS'],
-    theme: ['#10b981', '#059669'],
-    image: LabNectarImage,
-  },
-];
+import projects from 'data/projects';
 
 function AboutMe() {
   const INTRO = `Hi, I'm Omar Allagui, an aspiring cybersecurity engineer based in Tunisia. I am 
@@ -158,7 +107,7 @@ I'm fascinated by areas like ethical hacking, digital forensics, network securit
           app: 'My Projects',
           options: {
             injectProps: {
-              projects: PROJECTS,
+              projects,
             },
           },
         },
